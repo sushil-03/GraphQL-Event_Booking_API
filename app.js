@@ -4,11 +4,11 @@ const { graphqlHTTP } = require("express-graphql");
 const graphQlSchema = require("./graphql/schema");
 const graphQlResolver = require("./graphql/resolvers");
 const mongoose = require("mongoose");
-
+const isAuth = require("./middleware/is-auth");
 const app = express();
 
 app.use(bodyParser.json());
-
+app.use(isAuth);
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -30,5 +30,5 @@ mongoose
     app.listen(3000);
   })
   .catch((error) => {
-    console.log("SOmething went wrong in DB");
+    console.log("SOmething went wrong in DB", error);
   });
