@@ -4,6 +4,7 @@ import AuthPage from "./components/AuthPage";
 import Navbar from "./components/common/Navbar";
 import Events from "./components/Events";
 import { Booking } from "./components/Booking";
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,9 +21,6 @@ function App() {
       <Routes>
         <Route path="/booking" Component={Booking} />
       </Routes>
-      {/* <Routes>
-          <Route path="/" Component={<AuthPage />} />
-        </Routes> */}
     </BrowserRouter>
   );
 }
